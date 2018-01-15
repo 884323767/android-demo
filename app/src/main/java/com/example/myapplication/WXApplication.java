@@ -15,11 +15,8 @@ public class WXApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        InitConfig.Builder builder = new InitConfig.Builder();
-        builder.setImgAdapter(new ImageAdapter());
-        Toast.makeText(getApplicationContext(), "WXApplication", Toast.LENGTH_SHORT).show();
-
-        InitConfig config = builder.build();
-        WXSDKEngine.initialize(this, config);
+        // Code comes form: https://github.com/weexteam/article/issues/25
+        InitConfig config = new InitConfig.Builder().setImgAdapter(new ImageAdapter()).build();
+        WXSDKEngine.initialize(this,config);
     }
 }
